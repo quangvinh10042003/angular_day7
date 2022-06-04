@@ -1,0 +1,41 @@
+<div class="row mb-3">
+    <div class="col-lg-10">
+        <h2 class="text-center">Bảng danh sách nhân viên</h2>
+    </div>
+    <div class="col-lg-2">
+        <div class="row align-items-center" routerLink="/addNew">
+            <i class="fa-solid fa-square-plus text-left addNew"></i>
+            <span>Thêm mới</span>
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <!-- <div></div> -->
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Địa chỉ</th>
+            <th>SĐT</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let item of listIn4, let i = index" class="trRow">
+
+            <td scope="row">{{i}}</td>
+            <td><input type="text ipName" value="{{item.name}}" [(ngModel)]="item.name" id='name{{i}}'></td>
+            <td><input type="text ipAdress" value="{{item.address}}" [(ngModel)]="item.address" id='address{{i}}'></td>
+            <td><input type="text ipSDT" value="{{item.sdt}}" [(ngModel)]="item.sdt" id='sdt{{i}}'></td>
+            <td>
+                <div class="row position-relative">
+                    <a class="bg-primary d-none saveBut" href="#" id="saveBut{{i}}" role="button" (click)="saveEdit(i)">Save</a>
+                    <span><i class="fa-solid fa-pen-to-square text-info edit" (click)="edit(i)"></i></span>
+                    <span><i class="fa-solid fa-trash text-danger delete" (click)="delete(i)"></i></span>
+                </div>
+            </td>
+            <div class="blockList" id='box{{i}}'></div>
+        </tr>
+    </tbody>
+</table>
