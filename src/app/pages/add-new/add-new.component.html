@@ -1,16 +1,62 @@
-<form [formGroup]="formIn4">
+<form [formGroup]="formIn4" (ngSubmit)="submitForm()">
     <h2 class="text-center">Thêm mới thông tin</h2>
     <div class="form-group">
         <label for="">Họ và tên</label>
         <input type="text" class="form-control" formControlName="name">
+        <div *ngIf="form.name.invalid && (form.name.dirty || form.name.touched)">
+            <div *ngIf="form.name.errors?.['required']">
+                <span class="text-danger font-italic">*Ko được để rỗng</span>
+            </div>
+            <div *ngIf="!form.name.errors?.['minLength']">
+                <span class="text-danger font-italic">*Ít nhất 6 kí tự</span>
+            </div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="">Địa chỉ</label>
-        <input type="text" class="form-control" formControlName="address">
+        <label for="">Link Ảnh</label>
+        <input type="text" class="form-control" formControlName="img">
+        <div *ngIf="form.img.invalid && (form.img.dirty || form.img.touched)">
+            <div *ngIf="form.img.errors?.['required']">
+                <span class="text-danger font-italic">*Ko được để rỗng</span>
+            </div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="">Số điện thoại</label>
-        <input type="text" class="form-control" formControlName="sdt">
+        <label for="">Giá</label>
+        <input type="text" class="form-control" formControlName="price">
+        <div *ngIf="form.price.invalid && (form.price.dirty || form.price.touched)">
+            <div *ngIf="form.price.errors?.['pattern']">
+                <span class="text-danger font-italic">*Giá phải là số nguyên dương</span>
+            </div>
+        </div>
     </div>
-    <button type="submit mx-auto" (click)="submitForm()" routerLink="/">Submit</button>
+    <div class="form-group">
+        <label for="">Giá đã giảm</label>
+        <input type="text" class="form-control" formControlName="salePrice">
+        <div *ngIf="form.salePrice.invalid && (form.salePrice.dirty || form.salePrice.touched)">
+            <div *ngIf="form.salePrice.errors?.['required']">
+                <span class="text-danger font-italic">*Ko được để rỗng</span>
+            </div>
+            <div *ngIf="form.salePrice.errors?.['min']">
+                <span class="text-danger font-italic">*Phải là số nguyên dương</span>
+            </div>
+            <div *ngIf="form.salePrice.errors?.['max']">
+                <span class="text-danger font-italic">*Phải là số nhỏ hơn giá gốc</span>
+            </div>
+        </div>
+    </div>
+    <label for="">Mô tả sản phẩm</label>
+    <div class="form-group">
+        <textarea cols="135" rows="5" formControlName="description"></textarea>
+        <div *ngIf="form.description.invalid && (form.description.dirty || form.description.touched)">
+            <div *ngIf="form.description.errors?.['required']">
+                <span class="text-danger font-italic">*Không được bỏ trống</span>
+            </div>
+            <div *ngIf="!form.description.errors?.['minLength']">
+                <span class="text-danger font-italic">*ít nhất 20 kí tự</span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit mx-auto">Submit</button>
 </form>

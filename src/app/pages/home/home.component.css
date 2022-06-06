@@ -31,7 +31,7 @@ span {
 input {
     border: none;
     padding: 2px 5px;
-    width: 250px;
+    width: 130px;
 }
 
 .blockList {
@@ -53,7 +53,7 @@ input {
     font-size: 16px;
     padding: 2px 5px;
     position: absolute;
-    right: 80px;
+    right: 60px;
 }
 
 .borderInput {

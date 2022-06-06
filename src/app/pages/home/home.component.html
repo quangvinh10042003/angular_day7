@@ -15,8 +15,10 @@
             <!-- <div></div> -->
             <th>STT</th>
             <th>Tên</th>
-            <th>Địa chỉ</th>
-            <th>SĐT</th>
+            <th>Ảnh</th>
+            <th>Gía</th>
+            <th>Đã giảm Gía</th>
+            <th>Mô tả</th>
             <th></th>
         </tr>
     </thead>
@@ -26,13 +28,18 @@
 
             <td scope="row">{{i}}</td>
             <td><input type="text ipName" value="{{item.name}}" [(ngModel)]="item.name" id='name{{i}}'></td>
-            <td><input type="text ipAdress" value="{{item.address}}" [(ngModel)]="item.address" id='address{{i}}'></td>
-            <td><input type="text ipSDT" value="{{item.sdt}}" [(ngModel)]="item.sdt" id='sdt{{i}}'></td>
             <td>
+                <img src="{{item.img}}" width="80px" height="80px" id="img{{i}}">
+                <input class="d-none" type="text ipAdress" value="{{item.img}}" [(ngModel)]="item.img" id='Linkimg{{i}}'>
+            </td>
+            <td><input type="text ipSDT" value="{{item.price}}" [(ngModel)]="item.price" id='price{{i}}'></td>
+            <td><input type="text ipSDT" value="{{item.salePrice}}" [(ngModel)]="item.salePrice" id='salePrice{{i}}'></td>
+            <td><input type="text ipSDT" value="{{item.description}}" [(ngModel)]="item.description" id='description{{i}}'></td>
+            <td class="option">
                 <div class="row position-relative">
-                    <a class="bg-primary d-none saveBut" href="#" id="saveBut{{i}}" role="button" (click)="saveEdit(i)">Save</a>
-                    <span><i class="fa-solid fa-pen-to-square text-info edit" (click)="edit(i)"></i></span>
-                    <span><i class="fa-solid fa-trash text-danger delete" (click)="delete(i)"></i></span>
+                    <div><a class="bg-primary d-none saveBut" href="#" id="saveBut{{i}}" role="button" (click)="saveEdit(i)">Save</a></div>
+                    <div><i class="fa-solid fa-pen-to-square text-info edit" (click)="edit(i)"></i></div>
+                    <div><i class="fa-solid fa-trash text-danger delete" (click)="delete(i)"></i></div>
                 </div>
             </td>
             <div class="blockList" id='box{{i}}'></div>

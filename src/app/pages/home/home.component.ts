@@ -31,25 +31,39 @@ export class HomeComponent implements OnInit {
     let box = document.getElementById(`box${i}`) as HTMLDivElement | null;
     let saveBut = document.getElementById(`saveBut${i}`) as HTMLDivElement | null;
     let inpName = document.getElementById(`name${i}`) as HTMLDivElement | null;
-    let inpAdress = document.getElementById(`address${i}`) as HTMLDivElement | null;
-    let inpSDT = document.getElementById(`sdt${i}`) as HTMLDivElement | null;
+    let img = document.getElementById(`img${i}`) as HTMLImageElement | null;
+    let inpImg = document.getElementById(`Linkimg${i}`) as HTMLDivElement | null;
+    let inpPrice = document.getElementById(`price${i}`) as HTMLDivElement | null;
+    let inpSale = document.getElementById(`salePrice${i}`) as HTMLDivElement | null;
+    let inpDes = document.getElementById(`description${i}`) as HTMLDivElement | null;
     saveBut?.classList.remove('d-none');
+    inpImg?.classList.remove('d-none');
     box?.classList.add('d-none');
+    img?.classList.add('d-none');
     inpName?.classList.add('borderInput');
-    inpAdress?.classList.add('borderInput');
-    inpSDT?.classList.add('borderInput');
+    inpImg?.classList.add('borderInput'); 
+    inpPrice?.classList.add('borderInput');
+    inpSale?.classList.add('borderInput');
+    inpDes?.classList.add('borderInput');
   }
   saveEdit(i:number){
     let box = document.getElementById(`box${i}`) as HTMLDivElement | null;
     let saveBut = document.getElementById(`saveBut${i}`) as HTMLDivElement | null;
+    let img = document.getElementById(`img${i}`) as HTMLImageElement | null;
     let inpName = document.getElementById(`name${i}`) as HTMLDivElement | null;
-    let inpAdress = document.getElementById(`address${i}`) as HTMLDivElement | null;
-    let inpSDT = document.getElementById(`sdt${i}`) as HTMLDivElement | null;
+    let inpImg = document.getElementById(`Linkimg${i}`) as HTMLDivElement | null;
+    let inpPrice = document.getElementById(`price${i}`) as HTMLDivElement | null;
+    let inpSale = document.getElementById(`salePrice${i}`) as HTMLDivElement | null;
+    let inpDes = document.getElementById(`description${i}`) as HTMLDivElement | null;
     saveBut?.classList.add('d-none');
+    inpImg?.classList.add('d-none');
     box?.classList.remove('d-none');
+    img?.classList.remove('d-none');
     inpName?.classList.remove('borderInput');
-    inpAdress?.classList.remove('borderInput');
-    inpSDT?.classList.remove('borderInput');
+    inpImg?.classList.remove('borderInput');
+    inpPrice?.classList.remove('borderInput');
+    inpSale?.classList.remove('borderInput');
+    inpDes?.classList.remove('borderInput');
     localStorage.setItem('listIn4', JSON.stringify(this.listIn4));
     this.getIn4();
   }
